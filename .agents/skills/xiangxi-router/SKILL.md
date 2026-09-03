@@ -1,6 +1,6 @@
 ---
 name: xiangxi-router
-description: Shared skill router for the user's repositories. Route ambiguous or strategic work through Grill Me before implementation, and prefer domain-specific skills when available.
+description: Shared skill router for Xiangxi repositories. Route ambiguous or strategic work through Grill Me before implementation, and prefer domain-specific skills when available.
 ---
 
 Before executing a non-trivial request, classify it:
