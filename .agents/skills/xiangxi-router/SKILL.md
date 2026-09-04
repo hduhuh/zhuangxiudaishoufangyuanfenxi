@@ -10,7 +10,15 @@ Before executing a non-trivial request, classify it:
 3. If governance is required but `xiangxi-entropy-reducer` is not installed locally, do not pretend to call it. Mark the task as requiring Xiangxi governance and defer canonical cross-repository consolidation to the Xiangxi Skill Hub; continue only with safe local analysis that does not create a competing source of truth.
 4. Ambiguous, strategic, high-impact, cross-system, data-sensitive, financial, permission-related, migration, deletion, or architecture work: invoke `grill-me` / `grilling` first.
 5. If a repository-specific skill exists (for example `grill-xiangzu` or `grill-xiangda`), use it in addition to the generic skill above.
-6. Cross-platform publishing of already-approved text, images, or video: invoke `multipost-distribution` when installed. Do not use it for content generation or lead strategy.
+6. Create/assemble/repair a short video from approved text, images, footage, screenshots, or voiceover: invoke `shortvideo-factory` when installed.
+7. Cross-platform publishing of already-approved text, images, or video: invoke `multipost-distribution` when installed. Do not use it for content generation or lead strategy.
+8. If one request asks both to make a video and publish it, run `shortvideo-factory` first, then pass only the finished asset + approved title/caption + target platforms to `multipost-distribution`.
+
+Token discipline:
+- Load only the Skill(s) needed for the current task.
+- Reuse approved assets and decisions.
+- Do not send full background or duplicate copy between Skills; pass minimal structured inputs.
+- On failure, retry only the failed stage.
 
 If governance work is also ambiguous or high-impact, combine `xiangxi-entropy-reducer` with `grill-me` / `grilling`: first locate existing facts and conflicts, then ask only for unresolved authority, trade-offs, scope, deletion, or business-policy decisions.
 
