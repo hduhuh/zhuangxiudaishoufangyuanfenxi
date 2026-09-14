@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>需要挪车？我马上来</title>
+  <meta name="description" content="扫码联系车主挪车，车上不公开手机号。" />
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;background:#f7f8fa;color:#15171a;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+    body{min-height:100vh;padding:24px 16px 32px}.wrap{max-width:430px;margin:0 auto}.head{text-align:center;padding:10px 8px 18px}.head h1{font-size:27px;margin:0 0 8px;font-weight:800;letter-spacing:-.5px}.sub{font-size:14px;color:#73777f}
+    .card{background:#fff;border:1px solid #e8eaf0;border-radius:20px;padding:20px;box-shadow:0 5px 22px rgba(0,0,0,.045);margin-bottom:14px}.msg{font-size:16px;line-height:1.82;margin:0;color:#282b30}.hello{font-weight:700;font-size:18px;display:block;margin-bottom:7px}
+    .btn{display:flex;width:100%;height:52px;border-radius:14px;align-items:center;justify-content:center;text-decoration:none;font-size:17px;font-weight:700;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}.btn:active{transform:scale(.985)}
+    .primary{background:#3977f6;color:#fff;margin-top:20px}.secondary{background:#f3f6ff;color:#2865e2;margin-top:10px;border:1px solid #dbe6ff}.ghost{background:#f6f7f9;color:#30343b;margin-top:10px}.tip{font-size:12px;line-height:1.65;color:#8a8f98;margin:11px 2px 0}
+    .phone-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.phone{font-size:20px;font-weight:800;letter-spacing:1px;white-space:nowrap}.smallbtn{border:0;background:none;color:#3977f6;font-weight:700;font-size:14px;padding:8px 0;cursor:pointer}.copy{display:none;margin-top:10px}.copy.show{display:flex}.toast{display:none;margin-top:9px;font-size:13px;color:#3977f6}.toast.show{display:block}.foot{text-align:center;font-size:12px;color:#999ea6;margin-top:18px;line-height:1.6}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>需要挪车？我马上来</h1>
+      <div class="sub">扫码联系车主 · 车上不公开手机号</div>
+    </header>
+
+    <section class="card">
+      <p class="msg">
+        <span class="hello">你好呀，我是这辆车的车主 🙂</span>
+        如果我的车一不小心挡住您了，先跟您说声抱歉。下面可以给我发短信、打电话，或者点开联系方式找我。<br><br>
+        我看到后会尽快赶来挪车，尽量不耽误您。谢谢您手下留情，也祝您一路顺利。
+      </p>
+      <a id="smsBtn" class="btn primary" href="#">给车主发短信</a>
+      <a id="callBtn" class="btn secondary" href="#">拨打车主电话</a>
+      <div class="tip">如果微信没有自动打开短信，请点下面的“显示联系方式”，复制号码后再发送。</div>
+    </section>
+
+    <section class="card">
+      <div class="phone-row">
+        <span id="phoneText" class="phone">139****3534</span>
+        <button id="revealBtn" class="smallbtn" type="button">显示联系方式</button>
+      </div>
+      <button id="copyBtn" class="btn ghost copy" type="button">复制车主号码</button>
+      <div id="toast" class="toast">号码已复制</div>
+    </section>
+
+    <footer class="foot">仅用于临时挪车联系，请勿用于其他用途。</footer>
+  </main>
+
+<script>
+(function(){
+  var PHONE = atob('MTM5OTkxMjM1MzQ=');
+  var BODY = '您好，您的车可能挡住我了，麻烦您方便时来挪一下车，谢谢。';
+  var sms = document.getElementById('smsBtn');
+  var call = document.getElementById('callBtn');
+  var reveal = document.getElementById('revealBtn');
+  var phoneText = document.getElementById('phoneText');
+  var copyBtn = document.getElementById('copyBtn');
+  var toast = document.getElementById('toast');
+  sms.href = 'sms:' + PHONE + '?body=' + encodeURIComponent(BODY);
+  call.href = 'tel:' + PHONE;
+  var shown = false;
+  reveal.addEventListener('click', function(){
+    shown = !shown;
+    phoneText.textContent = shown ? PHONE : '139****3534';
+    reveal.textContent = shown ? '隐藏号码' : '显示联系方式';
+    copyBtn.classList.toggle('show', shown);
+  });
+  copyBtn.addEventListener('click', async function(){
+    try {
+      await navigator.clipboard.writeText(PHONE);
+      toast.textContent = '号码已复制，可以去短信或拨号粘贴';
+    } catch(e) {
+      var ta = document.createElement('textarea'); ta.value = PHONE; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); toast.textContent = '号码已复制'; }
+      catch(err){ toast.textContent = '请长按上方号码进行复制'; }
+      document.body.removeChild(ta);
+    }
+    toast.classList.add('show'); setTimeout(function(){toast.classList.remove('show')},2600);
+  });
+})();
+</script>
+</body>
+</html>
