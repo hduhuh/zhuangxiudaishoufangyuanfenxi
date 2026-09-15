@@ -1,12 +1,13 @@
 {
   "managed_by": "hduhuh/xiangxi-skills",
-  "config_version": "1.3.0",
+  "config_version": "1.4.0",
   "skills": [
     "grill-me",
     "grilling",
     "xiangxi-router",
     "decision",
-    "verification"
+    "verification",
+    "prompt-framework"
   ],
   "note": "Only files listed here are eligible for Xiangxi automatic pruning. Unmanaged skills are left untouched."
 }
