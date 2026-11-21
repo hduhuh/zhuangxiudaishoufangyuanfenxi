@@ -1,0 +1,7 @@
+---
+description: GitHub 强制协作及真实同步验收
+alwaysApply: true
+---
+先读 AGENTS.md 和 control-center/github-sync-v1/PROJECT_EXECUTION.md，再读其中固定版本的 Cursor 规则。
+在独立任务分支和工作区施工，保护已有修改；真实测试后 Commit、Push、Draft PR，核验同 SHA CI。
+不写默认分支，不合并，不部署，不接触生产或凭据。配置成功不能冒充实际原生同步成功。

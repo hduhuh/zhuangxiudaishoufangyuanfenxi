@@ -1,0 +1,29 @@
+{
+  "task_id": "AI-TOOLS-GITHUB-20261121",
+  "project": "zhuangxiudaishoufangyuanfenxi",
+  "repo": "hduhuh/zhuangxiudaishoufangyuanfenxi",
+  "branch": "codex/ai-tool-github-governance-20261121",
+  "issue": "https://github.com/hduhuh/ziwo-ai-os/issues/31",
+  "target_version": "GitHub 强制协作 V1.0",
+  "primary_executor": "Codex",
+  "scope": "仅分发项目执行入口、固定协议引用和通用同步核验；不修改业务",
+  "allowed_paths": [
+    "control-center/github-sync-v1/**",
+    "AGENTS.md",
+    ".cursor/rules/ziwo-github.mdc",
+    ".github/workflows/ziwo-governance.yml"
+  ],
+  "validation": [
+    {
+      "command": "python -m unittest discover -s control-center/github-sync-v1/tests -v",
+      "result": "PASS_ON_AUTHORITY; TARGET_CI_PENDING"
+    }
+  ],
+  "risk": "其他工具的原生加载与 GitHub 写入分别待验收；规范 CI 不等于已开启分支保护",
+  "rollback": "关闭未合并 Draft PR；保留分支历史，不修改默认分支",
+  "production_changes": false,
+  "merge_authorized": false,
+  "required_docs": [
+    "control-center/github-sync-v1/PROJECT_EXECUTION.md"
+  ]
+}
