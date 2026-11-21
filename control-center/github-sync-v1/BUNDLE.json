@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "mode": "reference",
+  "authority_repo": "hduhuh/ziwo-ai-os",
+  "authority_commit": "75366992126779399aa66ad039431b3fd7d2f0fd",
+  "files": {
+    "control-center/github-sync-v1/checks.py": "48920273a680fce8b44572b485991549088903a209bfb9bcd678251eb2ba9fd8",
+    "control-center/github-sync-v1/verify_delivery.py": "c78e4ffc5f2693cc7c8b2bd00f864a6ba33f26e8d934662959ec50fcc5a2b627",
+    "control-center/github-sync-v1/tests/test_delivery.py": "b4f0558d8b7f6f3ffaa1d284bb48378a6c4ab7ffa5ca8502a0b6cda4fedbe0c7",
+    "control-center/github-sync-v1/PROJECT_EXECUTION.md": "e35bd8cee0ed48ae4bc97e642380db477ed783ce2fd8114ee7b2ece81e7c96d9",
+    ".github/workflows/ziwo-governance.yml": "f9c6f5b89c70fc019f963863803782298e09a52d1667b55ea76fc9842f9655da",
+    ".cursor/rules/ziwo-github.mdc": "f74f99f9098072e77df198e3cc009e45a0447e06dbb5874352b3ffb19351d520"
+  }
+}
